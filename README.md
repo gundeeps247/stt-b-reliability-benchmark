@@ -1,4 +1,4 @@
-# Segment This Thing: Reproduction and Reliability Evaluation
+# STT-B Reliability Benchmark
 
 ## Project website
 
@@ -16,7 +16,7 @@ For a local preview, run `python -m http.server 3000` in the repository root and
 An external reproduction and evaluation of **Segment This Thing (STT-B)**, the CVPR 2025 point-prompted segmentation model based on foveated tokenization. The official pretrained model is evaluated on Oxford-IIIT Pet without retraining, then extended with prompt and degradation robustness, geometry analysis, confidence calibration, failure analysis, and a paired comparison with SAM ViT-B.
 
 <p align="center">
-  <a href="https://colab.research.google.com/github/gundeeps247/cv_dl/blob/main/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"></a>
+  <a href="https://colab.research.google.com/github/gundeeps247/stt-b-reliability-benchmark/blob/main/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"></a>
   <a href="Report.pdf"><img src="https://img.shields.io/badge/report-PDF-EA4335" alt="Read the report"></a>
 </p>
 
