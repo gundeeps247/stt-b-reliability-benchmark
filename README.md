@@ -1,10 +1,23 @@
 # Segment This Thing: Reproduction and Reliability Evaluation
 
+## Project website
+
+This repository includes a dependency-free static website for the study. It is ready to deploy on Vercel from the repository root—no build command, output directory, or environment variables are required.
+
+### Deploy to Vercel
+
+1. Push this repository to GitHub.
+2. In Vercel, choose **Add New → Project** and import the repository.
+3. Leave **Framework Preset** as `Other` and keep the build/output fields empty.
+4. Select **Deploy**.
+
+For a local preview, run `python -m http.server 3000` in the repository root and open `http://localhost:3000`.
+
 An external reproduction and evaluation of **Segment This Thing (STT-B)**, the CVPR 2025 point-prompted segmentation model based on foveated tokenization. The official pretrained model is evaluated on Oxford-IIIT Pet without retraining, then extended with prompt and degradation robustness, geometry analysis, confidence calibration, failure analysis, and a paired comparison with SAM ViT-B.
 
 <p align="center">
-  <a href="https://colab.research.google.com/github/gundeeps247/cv_dl/blob/main/STT_Final_Protocol_FINAL_500_100_v3%20%281%29.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"></a>
-  <a href="STT_CVPR_8_Page_Report.docx"><img src="https://img.shields.io/badge/report-DOCX-2B579A" alt="Read the report"></a>
+  <a href="https://colab.research.google.com/github/gundeeps247/cv_dl/blob/main/main.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"></a>
+  <a href="Report.pdf"><img src="https://img.shields.io/badge/report-PDF-EA4335" alt="Read the report"></a>
 </p>
 
 ![Qualitative STT-B results, including successful masks and a catastrophic failure](cv_dl%20project/qualitative_results_v2.png)
@@ -110,7 +123,7 @@ The model score is directionally useful, but the broad scatter and high-confiden
 
 The notebook is designed for Google Colab and installs its own dependencies.
 
-1. Open [`STT_Final_Protocol_FINAL_500_100_v3 (1).ipynb`](STT_Final_Protocol_FINAL_500_100_v3%20%281%29.ipynb) in Colab.
+1. Open [`main.ipynb`](main.ipynb) in Colab.
 2. Select a GPU runtime; the reported run used an NVIDIA Tesla T4.
 3. Keep `PROTOCOL = "final"` for the 500/100 design, or use `"sanity"` for a 20-image pipeline check.
 4. Run all cells from a fresh runtime.
@@ -129,8 +142,8 @@ This includes the primary and robustness tables, paired model deltas, bootstrap 
 
 ```text
 .
-├── STT_Final_Protocol_FINAL_500_100_v3 (1).ipynb  # Executed Colab experiment
-├── STT_CVPR_8_Page_Report.docx                    # Eight-page project report
+├── main.ipynb                                     # Executed Colab experiment
+├── Report.pdf                                     # Project report
 ├── cv_dl project/                                 # Exported figures and metrics
 └── README.md
 ```
