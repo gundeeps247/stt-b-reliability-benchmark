@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="STT B Reliability Benchmark evaluates the accuracy, speed, robustness, and reliability of point-prompted segmentation."
+    />
+    <meta name="theme-color" content="#f3f2ec" />
+    <meta property="og:title" content="STT B Reliability Benchmark" />
+    <meta
+      property="og:description"
+      content="499 images, seven evaluation dimensions, and a paired comparison with SAM ViT-B."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/cv_dl%20project/qualitative_results_v2.png" />
+    <title>STT B Reliability Benchmark</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%232146f3'/%3E%3Ccircle cx='32' cy='32' r='10' fill='%23d9ff43'/%3E%3C/svg%3E" />
+    <script>document.documentElement.classList.add('js');</script>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <a class="wordmark" href="#top" aria-label="STT B Reliability Benchmark home">
+        <span class="wordmark-mark" aria-hidden="true"></span>
+        <span>STT B / BENCHMARK</span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+        <span></span><span></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation" data-nav>
+        <a href="#results">Results</a>
+        <a href="#robustness">Robustness</a>
+        <a href="#method">Method</a>
+        <a href="/Report.pdf">Report</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span>CVPR 2025 model</span><span>Independent evaluation</span></p>
+          <h1>STT B<br /><em>Reliability</em><br />Benchmark</h1>
+          <p class="hero-deck">
+            A reproduction and reliability study of STT-B—testing whether fast,
+            point-prompted segmentation holds up beyond a headline score.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#results">Explore the findings <span>↓</span></a>
+            <a class="button button-secondary" href="/Report.pdf">Read the report <span>↗</span></a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" data-delay="1">
+          <div class="prompt-card">
+            <div class="image-frame">
+              <img
+                src="/cv_dl%20project/qualitative_results_v2.png"
+                alt="Qualitative STT-B segmentation results across several Oxford-IIIT Pet images"
+              />
+              <span class="focus-point" aria-hidden="true"></span>
+            </div>
+            <div class="card-caption"><span>Point prompt</span><span>Mask prediction</span></div>
+          </div>
+          <div class="hero-stamp" aria-label="499 images evaluated">
+            <strong>499</strong><span>images<br />evaluated</span>
+          </div>
+        </div>
+
+        <div class="hero-index" aria-hidden="true">01 / 05</div>
+      </section>
+
+      <section class="signal-strip" aria-label="Study summary">
+        <p>One point.</p><span></span><p>One mask.</p><span></span><p>Seven dimensions of evidence.</p>
+      </section>
+
+      <section class="section intro" aria-labelledby="intro-title">
+        <div class="section-label reveal">The question</div>
+        <div class="intro-copy reveal" data-delay="1">
+          <h2 id="intro-title">Fast segmentation is useful.<br /><em>Reliable</em> segmentation is better.</h2>
+          <p>
+            We evaluated the official STT-B checkpoint without retraining, then went further:
+            prompt placement, image degradation, boundary quality, confidence calibration,
+            failure cases, and a paired comparison against SAM ViT-B.
+          </p>
+        </div>
+        <div class="mini-facts reveal" data-delay="2">
+          <div><span>Dataset</span><strong>Oxford-IIIT Pet</strong></div>
+          <div><span>Prompt</span><strong>Deepest interior point</strong></div>
+          <div><span>Hardware</span><strong>NVIDIA Tesla T4</strong></div>
+        </div>
+      </section>
+
+      <section class="section results" id="results" aria-labelledby="results-title">
+        <div class="section-heading reveal">
+          <div>
+            <span class="section-number">01</span>
+            <p class="section-kicker">Primary results</p>
+          </div>
+          <h2 id="results-title">Strong regions.<br />Imperfect edges.</h2>
+        </div>
+
+        <div class="metric-grid">
+          <article class="metric-card metric-card-featured reveal">
+            <span class="metric-name">Mean IoU</span>
+            <strong>0.607</strong>
+            <div class="metric-bar"><i style="--value: 60.7%"></i></div>
+            <small>95% CI 0.584–0.628</small>
+          </article>
+          <article class="metric-card reveal" data-delay="1">
+            <span class="metric-name">Dice</span>
+            <strong>0.715</strong>
+            <div class="metric-bar"><i style="--value: 71.5%"></i></div>
+            <small>95% CI 0.692–0.736</small>
+          </article>
+          <article class="metric-card reveal" data-delay="2">
+            <span class="metric-name">Precision</span>
+            <strong>0.855</strong>
+            <div class="metric-bar"><i style="--value: 85.5%"></i></div>
+            <small>Higher than recall</small>
+          </article>
+          <article class="metric-card reveal" data-delay="3">
+            <span class="metric-name">Boundary F1</span>
+            <strong>0.095</strong>
+            <div class="metric-bar"><i style="--value: 9.5%"></i></div>
+            <small>Contours remain difficult</small>
+          </article>
+        </div>
+
+        <div class="finding reveal">
+          <span class="finding-mark">↳</span>
+          <p>
+            Precision exceeds recall, so STT-B more often <strong>misses part of the object</strong>
+            than includes unrelated foreground. Region overlap alone hides the much weaker contour quality.
+          </p>
+        </div>
+      </section>
+
+      <section class="section comparison" aria-labelledby="comparison-title">
+        <div class="section-heading section-heading-light reveal">
+          <div>
+            <span class="section-number">02</span>
+            <p class="section-kicker">Paired comparison</p>
+          </div>
+          <h2 id="comparison-title">STT-B vs.<br />SAM ViT-B</h2>
+        </div>
+
+        <div class="tradeoff-grid">
+          <div class="tradeoff-copy reveal">
+            <p class="tradeoff-lead">A clear quality–speed frontier.</p>
+            <p>
+              SAM produced moderately better masks on the same 100 images. STT-B answered
+              much faster—making the choice less about a winner and more about the workload.
+            </p>
+            <div class="speed-callout">
+              <strong>5.7×</strong>
+              <span>faster end-to-end<br />than SAM ViT-B</span>
+            </div>
+          </div>
+          <div class="scoreboard reveal" data-delay="1">
+            <div class="scoreboard-head"><span>Metric</span><span>STT-B</span><span>SAM</span></div>
+            <div><span>Mean IoU</span><strong>0.631</strong><strong class="winner">0.672</strong></div>
+            <div><span>Recall</span><strong>0.759</strong><strong class="winner">0.869</strong></div>
+            <div><span>Latency</span><strong class="winner">77 ms</strong><strong>440 ms</strong></div>
+            <div><span>Throughput</span><strong class="winner">13.54</strong><strong>2.28 FPS</strong></div>
+          </div>
+        </div>
+
+        <div class="chart-pair">
+          <figure class="chart-card reveal">
+            <img src="/cv_dl%20project/stt_vs_sam_iou.png" alt="Bar chart comparing mean IoU of STT-B and SAM ViT-B" loading="lazy" />
+            <figcaption>Overlap quality <span>↑ better</span></figcaption>
+          </figure>
+          <figure class="chart-card reveal" data-delay="1">
+            <img src="/cv_dl%20project/stt_vs_sam_runtime.png" alt="Bar chart comparing end-to-end runtime of STT-B and SAM ViT-B" loading="lazy" />
+            <figcaption>End-to-end latency <span>↓ better</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section robustness" id="robustness" aria-labelledby="robustness-title">
+        <div class="section-heading reveal">
+          <div>
+            <span class="section-number">03</span>
+            <p class="section-kicker">Stress tests</p>
+          </div>
+          <h2 id="robustness-title">Small changes.<br />Material effects.</h2>
+        </div>
+
+        <div class="robustness-grid">
+          <figure class="data-figure reveal">
+            <img src="/cv_dl%20project/prompt_robustness_iou.png" alt="Mean IoU for four point-prompt strategies" loading="lazy" />
+            <figcaption><strong>Where you click matters.</strong> The centroid prompt led this 100-image ablation.</figcaption>
+          </figure>
+          <figure class="data-figure reveal" data-delay="1">
+            <img src="/cv_dl%20project/degradation_robustness_iou.png" alt="Mean IoU under original, blur, bright, dark, and low-resolution conditions" loading="lazy" />
+            <figcaption><strong>Brightness is not neutral.</strong> Brightening caused the largest drop in mean IoU.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section reliability" aria-labelledby="reliability-title">
+        <div class="section-heading section-heading-light reveal">
+          <div>
+            <span class="section-number">04</span>
+            <p class="section-kicker">Reliability</p>
+          </div>
+          <h2 id="reliability-title">Confidence is<br />not correctness.</h2>
+        </div>
+
+        <div class="reliability-grid">
+          <figure class="calibration-figure reveal">
+            <img src="/cv_dl%20project/confidence_calibration.png" alt="Scatter plot of STT predicted IoU against actual IoU" loading="lazy" />
+          </figure>
+          <div class="reliability-copy reveal" data-delay="1">
+            <div class="correlation"><strong>r = 0.518</strong><span>predicted vs. actual IoU</span></div>
+            <p>
+              The model score is directionally useful, but the broad scatter makes it unsafe
+              as a per-image guarantee.
+            </p>
+            <div class="failure-stats">
+              <div><strong>66</strong><span>catastrophic failures</span></div>
+              <div><strong>22</strong><span>high-confidence failures</span></div>
+            </div>
+            <small>Catastrophic failure: actual IoU &lt; 0.25. High confidence: predicted IoU ≥ 0.70.</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="section method" id="method" aria-labelledby="method-title">
+        <div class="section-heading reveal">
+          <div>
+            <span class="section-number">05</span>
+            <p class="section-kicker">Method</p>
+          </div>
+          <h2 id="method-title">A fixed, reproducible<br />evaluation protocol.</h2>
+        </div>
+
+        <ol class="method-list">
+          <li class="reveal"><span>01</span><div><strong>Sample</strong><p>Shuffle the Oxford-IIIT Pet test split with seed 42 and request 500 valid masks.</p></div></li>
+          <li class="reveal"><span>02</span><div><strong>Prompt</strong><p>Place one positive point at the deepest interior foreground pixel.</p></div></li>
+          <li class="reveal"><span>03</span><div><strong>Infer</strong><p>Upscale the short side to 1,280 px, run STT-B, and map the prediction back.</p></div></li>
+          <li class="reveal"><span>04</span><div><strong>Measure</strong><p>Score regions, boundaries, latency, GPU memory, geometry, confidence, and failures.</p></div></li>
+        </ol>
+
+        <div class="downloads reveal">
+          <div>
+            <p class="section-kicker">Reproduce the work</p>
+            <h3>Everything behind the numbers.</h3>
+          </div>
+          <div class="download-links">
+            <a href="/main.ipynb">Notebook <span>.ipynb ↗</span></a>
+            <a href="/Report.pdf">Full report <span>.pdf ↗</span></a>
+            <a href="/presentation.pptx">Presentation <span>.pptx ↓</span></a>
+            <a href="https://github.com/gundeeps247/stt-b-reliability-benchmark" rel="noreferrer">Source code <span>GitHub ↗</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-title">STT B</div>
+      <p><strong>Reliability Benchmark</strong><br />Independent evaluation with no training performed.</p>
+      <div><span>Built from the published experiment artifacts.</span><span>© <span data-year>2026</span></span></div>
+    </footer>
+  </body>
+</html>
